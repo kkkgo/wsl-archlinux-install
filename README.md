@@ -1,2 +1,3 @@
 # wsl-archlinux-install
-自用的wsl安装脚本
+自用的wsl安装Archlinux脚本
+
