@@ -3,7 +3,6 @@
 
 ## 使用方法，3步
  0、前置条件:确保你已经开启了WSL功能和虚拟机平台功能，如有其他版本的WSL系统建议卸载。Windows版本为1903 或更高版本，采用内部版本 18362 或更高版本。[参考链接](https://docs.microsoft.com/zh-cn/windows/wsl/install-manual)     
- 参考链接：https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package  
 
 **启用适用于 Linux 的 Windows 子系统 [管理员]**
 >dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart  
