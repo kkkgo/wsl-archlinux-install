@@ -23,7 +23,7 @@ https://mirrors.ustc.edu.cn/archlinux/iso/latest/
 **如果你一切准备好的话，文件看起来应该是这样：**  
 ![路径演示](./path.png)    
 
-3、双击运行Install.bat即可安装，过程需要联网。  
+3、直接双击运行Install.bat即可安装（无需右键管理员！），过程需要联网。  
 
 ## 如何进入wsl
 在命令行敲`WSL`回车就进去了
