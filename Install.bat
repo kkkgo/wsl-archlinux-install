@@ -1,6 +1,7 @@
 @echo off
 wsl --unregister ArchLinux
 wsl_update_x64.msi /q
+wsl --update
 wsl --set-default-version 2
 echo Install rootfs...
 ren archlinux-bootstrap*x86_64.tar.gz archlinux-bootstrap-x86_64.tar.gz
