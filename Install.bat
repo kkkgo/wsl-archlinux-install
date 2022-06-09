@@ -1,4 +1,7 @@
 @echo off
+echo !NEED: Microsoft Windows [10.0.18362+]
+echo echo Your version:
+ver
 wsl --unregister ArchLinux
 wsl_update_x64.msi /q
 wsl --update
@@ -18,8 +21,8 @@ echo # Install your Package here...
 wsl pacman -Syu base base-devel vim git wget nano curl dnsutils openssh make gcc net-tools git inetutils traceroute  linux linux-firmware zsh --noconfirm
 
 echo # language pack...
-wsl sed -i 's/^#zh_/zh_/g'  /etc/locale.gen
-wsl sed -i 's/^#en_/en_/g'  /etc/locale.gen
+wsl sed -i 's/^#zh_CN/zh_CN/g'  /etc/locale.gen
+wsl sed -i 's/^#en_US/en_US/g'  /etc/locale.gen
 wsl locale-gen
 
 echo # Set zsh...
@@ -28,3 +31,5 @@ wsl chsh -s /bin/zsh
 
 echo # Finsh
 echo Install Finshed. Type "wsl" to use.
+
+pause
