@@ -2,7 +2,7 @@
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 echo !NEED: Microsoft Windows [10.0.18362+]
-echo echo Your version:
+echo Your version:
 ver
 wsl --unregister ArchLinux
 wsl_update_x64.msi /q
