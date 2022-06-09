@@ -1,6 +1,4 @@
 @echo off
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 echo !NEED: Microsoft Windows [10.0.18362+]
 echo Your version:
 ver
