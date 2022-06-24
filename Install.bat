@@ -18,7 +18,7 @@ wsl pacman-key --init
 wsl pacman-key --populate
 
 echo # Install your Package here...
-wsl pacman -Syu base base-devel vim git wget nano curl dnsutils openssh make gcc net-tools git inetutils traceroute  linux linux-firmware zsh --noconfirm
+wsl pacman -Syu base base-devel vim git wget nano curl dnsutils openssh make gcc net-tools inetutils traceroute linux linux-firmware zsh --noconfirm
 
 echo # language pack...
 wsl sed -i 's/^#zh_CN/zh_CN/g'  /etc/locale.gen
