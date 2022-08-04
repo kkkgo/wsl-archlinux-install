@@ -49,8 +49,6 @@ wsl -d Archlinux -e cp pacman_init.txt /tmp/pacman_init
 wsl -d Archlinux -e sh -c "sed -i $'s/\r$//' /tmp/pacman_init"
 wsl -d Archlinux -e sh /tmp/pacman_init
 
-wsl -d Archlinux -e "cat pacman_init.txt|sed 's/^M$//'|sh"
-wsl -d Archlinux -e sh pacman_init.txt
 echo # Finsh
 echo Install Finshed. Type "wsl" to use.
 wsl
