@@ -2,6 +2,10 @@
 echo !NEED: Microsoft Windows [10.0.18362+]
 echo Your version:
 ver
+start update_kernel.bat
+timeout 3
+timeout 2
+timeout 1
 wsl --unregister ArchLinux
 wsl_update_x64.msi /q
 wsl --update
