@@ -16,9 +16,10 @@
 >Set-VMProcessor -VMName win10vm -ExposeVirtualizationExtensions $true   
 
 ***
-在你要安装Archlinux的目录新建文件夹，比如C:\MyArch，直接双击运行Install.bat即可安装！ （无需右键管理员！），过程需要联网。    
+在你要安装Archlinux的目录新建文件夹，比如C:\MyArch：  
 **如果你一切准备好的话，文件看起来应该是这样：**  
 ![路径演示](./path.png)    
+然后？直接双击运行Install.bat即可安装！ （无需右键管理员！），过程需要联网。    
 
 ## 自定义文件说明
 修改镜像源: 请编辑替换tar_conv.txt  
