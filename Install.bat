@@ -22,7 +22,7 @@ fltmc 1>nul 2>nul || (
 cd /d %~sdp0
 echo %~sdp0
 wsl_update_x64.msi /q
-#wsl --update
+wsl --update
 wsl --unregister ArchLinux
 wsl --unregister alpine-makerootfs
 wsl --set-default-version 2
