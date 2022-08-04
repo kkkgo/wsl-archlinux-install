@@ -1,7 +1,9 @@
 @echo off
 echo !NEED: Microsoft Windows [10.0.18362+]
+echo ======================
 echo Your version:
 ver
+echo ======================
 
 @echo off
 :: Get Administrator Rights
@@ -18,34 +20,26 @@ fltmc 1>nul 2>nul || (
 )
 
 cd /d %~sdp0
+echo %~sdp0
 wsl_update_x64.msi /q
 wsl --update
 wsl --unregister ArchLinux
+wsl --unregister alpine-makerootfs
 wsl --set-default-version 2
-echo Install rootfs...
-ren archlinux-bootstrap*x86_64.tar.gz archlinux-bootstrap-x86_64.tar.gz
-LxRunOffline i -n ArchLinux -f archlinux-bootstrap-x86_64.tar.gz -d . -r root.x86_64
+echo Makeing rootfs...
+del /F /S /Q Archlinux_WSL_root.tar
+curl https://mirrors.ustc.edu.cn/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.16.0-x86_64.tar.gz --output alpine.tar.gz
+rmdir /s/q alpine-makerootfs
+mkdir alpine-makerootfs
+wsl --import alpine-makerootfs alpine-makerootfs alpine.tar.gz
+wsl -d alpine-makerootfs -e sh tar_conv.txt
+wsl --unregister alpine-makerootfs
+rmdir /s/q alpine-makerootfs
+del /F /S /Q alpine.tar.gz
+wsl --import Archlinux . .\Archlinux_WSL_root.tar
+del /F /S /Q Archlinux_WSL_root.tar
 wsl --set-version ArchLinux 2
-wsl sed -i  's/^#Server/Server/g' /etc/pacman.d/mirrorlist
-
-echo # Set your mirror here...
-wsl sed -i  '1c Server  = http://mirrors.ustc.edu.cn\/archlinux\/$repo\/os\/$arch\/' /etc/pacman.d/mirrorlist
-wsl pacman-key --init
-wsl pacman-key --populate
-
-echo # Install your Package here...
-wsl pacman -Syu base base-devel vim git wget nano curl dnsutils openssh make gcc net-tools inetutils traceroute linux linux-firmware zsh --noconfirm
-
-echo # language pack...
-wsl sed -i 's/^#zh_CN/zh_CN/g'  /etc/locale.gen
-wsl sed -i 's/^#en_US/en_US/g'  /etc/locale.gen
-wsl locale-gen
-
-echo # Set zsh...
-wsl cp zshrc /etc/zsh/
-wsl chsh -s /bin/zsh
-
+wsl -d Archlinux -e sh pacman_init.txt
 echo # Finsh
 echo Install Finshed. Type "wsl" to use.
-
-pause
+wsl
