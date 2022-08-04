@@ -28,7 +28,7 @@ wsl --unregister alpine-makerootfs
 wsl --set-default-version 2
 echo Makeing rootfs...
 del /F /S /Q Archlinux_WSL_root.tar
-curl https://mirrors.ustc.edu.cn/alpine/latest-stable/releases/x86_64/alpine-minirootfs-3.16.0-x86_64.tar.gz --output alpine.tar.gz
+curl https://mirrors.ustc.edu.cn/alpine/v3.16/releases/x86_64/alpine-minirootfs-3.16.1-x86_64.tar.gz --output alpine.tar.gz
 rmdir /s/q alpine-makerootfs
 mkdir alpine-makerootfs
 wsl --import alpine-makerootfs alpine-makerootfs alpine.tar.gz
@@ -43,7 +43,7 @@ del /F /S /Q alpine.tar.gz
 wsl --import Archlinux . .\Archlinux_WSL_root.tar
 del /F /S /Q Archlinux_WSL_root.tar
 wsl --set-version ArchLinux 2
-wsl -d Archlinux -e uname
+wsl -d Archlinux -e uname -a
 
 wsl -d Archlinux -e cp pacman_init.txt /tmp/pacman_init
 wsl -d Archlinux -e sh -c "sed -i $'s/\r$//' /tmp/pacman_init"

@@ -1,5 +1,5 @@
 rm -rf /tmp/*
-wget https://mirrors.ustc.edu.cn/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.gz -O /tmp/archlinux-bootstrap-x86_64.tar.gz
+wget http://mirrors.ustc.edu.cn/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.gz -O /tmp/archlinux-bootstrap-x86_64.tar.gz
 tar -xzf /tmp/archlinux-bootstrap-x86_64.tar.gz -C /tmp/
 sed -i  's/^#Server/Server/g' /tmp/root.x86_64/etc/pacman.d/mirrorlist
 sed -i  '1c Server  = http://mirrors.ustc.edu.cn\/archlinux\/$repo\/os\/$arch\/' /tmp/root.x86_64/etc/pacman.d/mirrorlist
