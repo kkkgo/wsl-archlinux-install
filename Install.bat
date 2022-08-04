@@ -22,7 +22,7 @@ fltmc 1>nul 2>nul || (
 cd /d %~sdp0
 echo %~sdp0
 wsl_update_x64.msi /q
-wsl --update
+#wsl --update
 wsl --unregister ArchLinux
 wsl --unregister alpine-makerootfs
 wsl --set-default-version 2
@@ -32,13 +32,24 @@ curl https://mirrors.ustc.edu.cn/alpine/latest-stable/releases/x86_64/alpine-min
 rmdir /s/q alpine-makerootfs
 mkdir alpine-makerootfs
 wsl --import alpine-makerootfs alpine-makerootfs alpine.tar.gz
-wsl -d alpine-makerootfs -e sh tar_conv.txt
+wsl -d alpine-makerootfs -e uname -a
+wsl -d alpine-makerootfs -e cp tar_conv.txt /tmp/tar_conv
+wsl -d alpine-makerootfs -e sh -c "sed -i $'s/\r$//' /tmp/tar_conv"
+wsl -d alpine-makerootfs -e sh /tmp/tar_conv
+
 wsl --unregister alpine-makerootfs
 rmdir /s/q alpine-makerootfs
 del /F /S /Q alpine.tar.gz
 wsl --import Archlinux . .\Archlinux_WSL_root.tar
 del /F /S /Q Archlinux_WSL_root.tar
 wsl --set-version ArchLinux 2
+wsl -d Archlinux -e uname
+
+wsl -d Archlinux -e cp pacman_init.txt /tmp/pacman_init
+wsl -d Archlinux -e sh -c "sed -i $'s/\r$//' /tmp/pacman_init"
+wsl -d Archlinux -e sh /tmp/pacman_init
+
+wsl -d Archlinux -e "cat pacman_init.txt|sed 's/^M$//'|sh"
 wsl -d Archlinux -e sh pacman_init.txt
 echo # Finsh
 echo Install Finshed. Type "wsl" to use.
