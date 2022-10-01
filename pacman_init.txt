@@ -11,7 +11,5 @@ sed -i 's/^#en_US/en_US/g'  /etc/locale.gen
 locale-gen
 
 echo # Set zsh...
-
-cp zshrc.txt /etc/zsh/zshrc
-sed -i $'s/\r$//' /etc/zsh/zshrc
+tar -xf zshrc.tar.gz -C /etc/zsh/
 chsh -s /bin/zsh
