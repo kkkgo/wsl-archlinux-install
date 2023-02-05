@@ -3,7 +3,7 @@ pacman-key --populate
 pacman -Sy archlinux-keyring  --noconfirm
 pacman -Su --noconfirm
 echo # Install your Package here...
-pacman -Syu base base-devel vim git wget nano curl dnsutils openssh make gcc net-tools inetutils traceroute linux linux-firmware zsh --noconfirm
+pacman -Syu base base-devel vim git wget nano curl dnsutils openssh make gcc net-tools inetutils traceroute linux linux-firmware zsh grml-zsh-config --noconfirm
 
 echo # language pack...
 sed -i 's/^#zh_CN/zh_CN/g'  /etc/locale.gen
@@ -11,5 +11,4 @@ sed -i 's/^#en_US/en_US/g'  /etc/locale.gen
 locale-gen
 
 echo # Set zsh...
-tar -xf zshrc.tar.gz -C /etc/zsh/
 chsh -s /bin/zsh
