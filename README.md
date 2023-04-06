@@ -24,7 +24,6 @@
 ## 自定义文件说明
 修改镜像源: 请编辑替换tar_conv.txt  
 修改预安装的包：请编辑pacman_init.txt  
-zsh配置：请替换zshrc.tar.gz  
 
 ## 如何进入wsl
 在命令行敲`WSL`回车就进去了
